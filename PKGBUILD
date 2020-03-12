@@ -12,8 +12,8 @@ pkgdesc="Lokinet is an anonymous, decentralized and IP based overlay network for
 arch=(x86_64)
 url="github.com/loki-project/loki-network"
 license=('custom')
-depends=("systemd" "curl" "libuv")
-makedepends=("cxxopts" "make" "gcc" "libsodium>=1.0.18")
+depends=("systemd" "curl" "libuv" "libsodium>=1.0.18")
+makedepends=("cxxopts" "make" "gcc" )
 provides=(loki-network)
 source=("https://i2p.rocks/files/lokinet/archives/${pkgver}-rc3/lokinet-${_tag}.tar.xz" 
 	"https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-v0.7.0-rc3.tar.xz.sig"
