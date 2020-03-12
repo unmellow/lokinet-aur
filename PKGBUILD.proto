@@ -26,7 +26,7 @@ install=
 changelog=
 source=("https://github.com/loki-project/$pkgname/archive/$pkgver.zip")
 noextract=()
-md5sums=("262eb015e13bef5444f36e06fbb046e9")
+md5sums=()
 validpgpkeys=()
 
 build() {
