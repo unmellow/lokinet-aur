@@ -1,5 +1,7 @@
 post_install() {
   sudo setcap cap_net_admin,cap_net_bind_service=+eip /usr/bin/lokinet 
+  mkdir -p /var/lib/lokinet 
+  useradd _lokinet -d /var/lib/lokinet
 }
 
 post_upgrade() {

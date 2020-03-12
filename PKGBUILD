@@ -33,6 +33,5 @@ package() {
 	mkdir -p "$pkgdir/usr/share/licenses/$pkgname"
 	cp LICENSE "$pkgdir/usr/share/licenses/$pkgname"
 	mkdir -p "$pkgdir/usr/lib/systemd/system/"
-	cp ${srcdir}lokinet.service "$pkgdir/usr/lib/systemd/system/"
-	useradd _lokinet -m ${pkgdir}/var/lib/lokinet -g net 
+	cp ${srcdir}/lokinet.service "$pkgdir/usr/lib/systemd/system/"  
 }
