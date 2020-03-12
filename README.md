@@ -1,1 +1,1 @@
-remember to delete .git before runing makepkg
+nevermind things just work now!
