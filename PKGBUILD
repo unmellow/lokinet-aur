@@ -4,8 +4,9 @@
 # then please put 'unknown'.
 
 # Maintainer: Your Name <Amazingminecrafter2015@gmail.com>
+_tag=v0.7.0-rc3
 pkgname=loki-network
-pkgver=0.7.0
+pkgver=0.7.0rc3
 pkgrel=1
 pkgdesc="Lokinet is an anonymous, decentralized and IP based overlay network for the internet."
 arch=(x86_64)
@@ -14,19 +15,18 @@ license=('custom')
 depends=("systemd" "curl" "libuv")
 makedepends=( "make" "gcc" "libsodium>=1.0.18")
 provides=(loki-network)
-source=("https://i2p.rocks/files/lokinet/archives/${pkgver}-rc3/lokinet-v${pkgver}-rc3.tar.xz" ) # https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-v0.7.0-rc3.tar.xz.sig
-sha256sums=("SKIP" )
-
-validpgpkeys=("SKIP")
+source=("https://i2p.rocks/files/lokinet/archives/${pkgver}-rc3/lokinet-${_tag}.tar.xz" "https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-v0.7.0-rc3.tar.xz.sig")
+sha256sums=( "SKIP" "SKIP")
+validpgpkeys=("67EF6BA68E7B0B0D6EB4F7D4F357B3B42F6F9B05")
 
 build() {
-	cd "${srcdir}/lokinet-v${pkgver}-rc3"
+	cd "${srcdir}/lokinet-${_tag}"
 	cmake -DCMAKE_INSTALL_PREFIX=/usr -DNATIVE_BUILD=OFF -DWITH_SHARED=ON -DSUBMODULE_CHECK=OFF -B build
         make -C build
 }
 
 package() {
-	cd "${srcdir}/lokinet-v${pkgver}-rc3"
+	cd "${srcdir}/lokinet-${_tag}" 
 	make DESTDIR="$pkgdir/" install
 	mkdir -p "$pkgdir/usr/share/licenses/$pkgname"
 	cp LICENSE "$pkgdir/usr/share/licenses/$pkgname"
