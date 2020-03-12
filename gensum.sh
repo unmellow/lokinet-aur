@@ -1,4 +1,2 @@
 #!bin/sh
-curl https://codeload.github.com/loki-project/loki-network/zip/master | md5sum
-
-
+curl -L https://github.com/loki-project/loki-network/archive/master.zip | md5sum
