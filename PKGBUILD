@@ -1,8 +1,3 @@
-# This is an example PKGBUILD file. Use this as a start to creating your own,
-# and remove these comments. For more information, see 'man PKGBUILD'.
-# NOTE: Please fill out the license field for your package! If it is unknown,
-# then please put 'unknown'.
-
 # Maintainer: Your Name <Amazingminecrafter2015@gmail.com>
 _tag=v0.7.0-rc3
 pkgname=loki-network
@@ -17,9 +12,11 @@ makedepends=("cxxopts" "make" "gcc" )
 provides=(loki-network)
 source=("https://i2p.rocks/files/lokinet/archives/${pkgver}-rc3/lokinet-${_tag}.tar.xz" 
 	"https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-v0.7.0-rc3.tar.xz.sig"
-	"lokinet.service"
-	"${pkgname}.install")
-sha256sums=( "SKIP" "SKIP" "3bff0c487b34fc98b95daece674ea50ab2bc696a46d41290ba00839803a68830" "SKIP")
+	"lokinet.service")
+sha256sums=( "SKIP" 
+	"SKIP" 
+	"3bff0c487b34fc98b95daece674ea50ab2bc696a46d41290ba00839803a68830")
+install="${pkgname}.install"
 validpgpkeys=("67EF6BA68E7B0B0D6EB4F7D4F357B3B42F6F9B05")
 
 build() {
@@ -28,8 +25,7 @@ build() {
         make -C build 
 }
 
-package() {
-	cp ${srcdir}/${pkgname}.install ${pkgdir}/
+package() {	
 	cd "${srcdir}/lokinet-${_tag}" 
 	make DESTDIR="$pkgdir/" install
 	mkdir -p "$pkgdir/usr/share/licenses/$pkgname"

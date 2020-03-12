@@ -1,5 +1,6 @@
 post_install() {  
-  useradd _lokinet -d /var/lib/lokinet
+  useradd _lokinet -d -m /var/lib/lokinet
+  chown _lokinet:_lokinet /var/lib/lokinet
 }
 
 post_upgrade() {
