@@ -1,1 +1,1 @@
-remember to delete .git before building this package
+remember to delete .git before runing makepkg
