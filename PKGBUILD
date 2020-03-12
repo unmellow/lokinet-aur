@@ -14,21 +14,17 @@ license=('custom')
 depends=('systemd' 'curl' 'libsodium>=1.0.17' 'libuv')
 makedepends=( 'make' 'gcc' )
 provides=(loki-network)
-source=("${pkgname}-${pkgver}.tar.gz::https://${url}/archive/v${pkgver}.tar.gz" "lokinet.service" "LICENSE")
-sha256sums=("SKIP" "SKIP" "DKIP")
+source=("https://${url}/releases/download/v${pkgver}-rc3/lokinet-linux-x64-v${pkgver}-50514d55b.tar.xz" "lokinet.service" "LICENSE")
+sha256sums=("SKIP" "SKIP" "SKIP")
 validpgpkeys=()
 
-build() {
-        cd "$pkgname"	
-        make
-}
-
 package() {
-	cd "${srcdir}/${pkgname}-${pkgver}"
-	make DESTDIR="$pkgdir/" install
+	cd "${srcdir}/lokinet-linux-x64-v${pkgver}-50514d55b/"
+	mkdir -p ${pkgdir}/usr/bin/
+	cp lokinet ${pkgdir}/usr/bin/
+	cp lokinetctl ${pkgdir}/usr/bin/
+	cp lokinet-bootstrap ${pkgdir}/usr/bin/
 	mkdir -p "$pkgdir/usr/lib/systemd/system/"
-	cp debian.lokinet.service "$pkgdir/usr/lib/systemd/system/"
-	setcap cap_net_admin,cap_net_bind_service=+eip "$pkgdir/usr/local/bin/lokinet"
-	# LICENSE
-        install -Dm 644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+	cp ${srcdir}/lokinet.service "$pkgdir/usr/lib/systemd/system/"
+	setcap cap_net_admin,cap_net_bind_service=+eip "$pkgdir/usr/bin/lokinet"
 }
