@@ -15,8 +15,10 @@ license=('custom')
 depends=("systemd" "curl" "libuv")
 makedepends=("cxxopts" "make" "gcc" "libsodium>=1.0.18")
 provides=(loki-network)
-source=("https://i2p.rocks/files/lokinet/archives/${pkgver}-rc3/lokinet-${_tag}.tar.xz" "https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-v0.7.0-rc3.tar.xz.sig")
-sha256sums=( "SKIP" "SKIP")
+source=("https://i2p.rocks/files/lokinet/archives/${pkgver}-rc3/lokinet-${_tag}.tar.xz" 
+	"https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-v0.7.0-rc3.tar.xz.sig"
+	"lokinet.service")
+sha256sums=( "SKIP" "SKIP" "3bff0c487b34fc98b95daece674ea50ab2bc696a46d41290ba00839803a68830")
 validpgpkeys=("67EF6BA68E7B0B0D6EB4F7D4F357B3B42F6F9B05")
 
 build() {
@@ -31,5 +33,6 @@ package() {
 	mkdir -p "$pkgdir/usr/share/licenses/$pkgname"
 	cp LICENSE "$pkgdir/usr/share/licenses/$pkgname"
 	mkdir -p "$pkgdir/usr/lib/systemd/system/"
-	cp debian/lokinet.service "$pkgdir/usr/lib/systemd/system/"
+	cp ${srcdir}lokinet.service "$pkgdir/usr/lib/systemd/system/"
+	useradd _lokinet -m ${pkgdir}/var/lib/lokinet -g net 
 }

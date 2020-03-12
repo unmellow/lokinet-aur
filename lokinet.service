@@ -1,5 +1,5 @@
 [Unit]
-Description=LokiNET: Anonymous Network layer thingydoo, client
+Description=LokiNET: Anonymous Network layer thingydoo.
 Wants=network-online.target
 After=network-online.target
 
@@ -10,7 +10,8 @@ WatchdogSec=30s
 SyslogIdentifier=lokinet
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
-ExecStart=/usr/bin/lokinet 
+ExecStartPre=/bin/bash -c "/usr/bin/lokinet-bootstrap && /usr/bin/lokinet -g"
+ExecStart=/usr/bin/lokinet
 Restart=always
 RestartSec=5s
 
