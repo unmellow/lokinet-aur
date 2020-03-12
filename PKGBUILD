@@ -11,22 +11,30 @@ pkgdesc="Lokinet is an anonymous, decentralized and IP based overlay network for
 arch=(x86_64)
 url="github.com/loki-project/loki-network"
 license=('custom')
-depends=("bash")
+depends=("git" "bash")
 provides=(loki-network)
-source=("https://${url}/releases/download/v${pkgver}-rc3/lokinet-linux-x64-v${pkgver}-50514d55b.tar.xz" "lokinet.service" "LICENSE")
+source=("https://github.com/loki-project/${pkgname}/archive/v${pkgver}-rc3.tar.gz" "lokinet.service" "LICENSE")
 sha256sums=("SKIP" "SKIP" "SKIP")
 validpgpkeys=()
 
+prepare() {
+	cd "${srcdir}/$pkgname-$pkgver-rc3"
+	git submodule update --init --recursive --remote
+	git submodule update --init --recursive 
+}
+
+build() {
+	cd "${srcdir}/${pkgname}-${pkgver}-rc3"
+	git submodule update --init --recursive --remote
+	git submodule update --init --recursive
+	make
+}
+
 package() {
-	cd "${srcdir}/lokinet-linux-x64-v${pkgver}-50514d55b/"
-	mkdir -p ${pkgdir}/usr/bin/
-	cp lokinet ${pkgdir}/usr/bin/
-	cp lokinetctl ${pkgdir}/usr/bin/
-	cp lokinet-bootstrap ${pkgdir}/usr/bin/
-	chown root:root ${pkgdir}/usr/bin/lokinet
+	cd "${srcdir}/${pkgname}-${pkgver}-rc3"
+	make DESTDIR="$pkgdir/usr" install
 	mkdir -p ${pkgdir}/usr/lib/systemd/system/
 	cp ${srcdir}/lokinet.service ${pkgdir}/usr/lib/systemd/system/
-	setcap cap_net_admin,cap_net_bind_service=+eip ${pkgdir}/usr/bin/lokinet
 	mkdir -p ${pkgdir}/usr/share/licenses/loki-network/
 	cp ${srcdir}/LICENSE ${pkgdir}/usr/share/licenses/loki-network/
 }
