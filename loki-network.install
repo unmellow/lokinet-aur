@@ -1,0 +1,7 @@
+post_install() {
+  setcap cap_net_admin,cap_net_bind_service=+eip usr/bin/lokinet 2>/dev/null || chmod +s usr/bin/lokinet
+}
+
+post_upgrade() {
+  post_install "$1"
+}
