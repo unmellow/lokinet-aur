@@ -12,27 +12,19 @@ arch=(x86_64)
 url="github.com/loki-project/loki-network"
 license=('custom')
 depends=("systemd" "curl" "libsodium>=1.0.17" "libuv")
-makedepends=("git" "make" "gcc" "libsodium>=1.0.18")
+makedepends=( "make" "gcc" "libsodium>=1.0.18")
 provides=(loki-network)
-source=("https://github.com/loki-project/${pkgname}/archive/v${pkgver}-rc3.tar.gz" "lokinet.service" "LICENSE")
-sha256sums=("4f9d1115efb3c2849c50245ec2da067edec799df0fd4fc072b93cce04f5cf5b8" "SKIP" "SKIP")
-validpgpkeys=()
-
-prepare() {
-	cd "${srcdir}/$pkgname-$pkgver-rc3"
-	git submodule update --init --recursive --remote
-	git submodule update --init --recursive 
-}
+source=("https://i2p.rocks/files/lokinet/archives/${pkgver}-rc3/lokinet-v${pkgver}-rc3.tar.xz" "lokinet.service" "LICENSE")
+sha256sums=( "SKIP" "SKIP" "SKIP")
+validpgpkeys=("")
 
 build() {
-	cd "${srcdir}/${pkgname}-${pkgver}-rc3"
-	git submodule update --init --recursive --remote
-	git submodule update --init --recursive
+	cd "${srcdir}/lokinet-v${pkgver}-rc3"
 	make
 }
 
 package() {
-	cd "${srcdir}/${pkgname}-${pkgver}-rc3"
+	cd "${srcdir}/lokinet-v${pkgver}-rc3"
 	make DESTDIR="$pkgdir/usr" install
 	mkdir -p ${pkgdir}/usr/lib/systemd/system/
 	cp ${srcdir}/lokinet.service ${pkgdir}/usr/lib/systemd/system/
