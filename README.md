@@ -1,4 +1,18 @@
 for info on what lokinet is go here https://github.com/loki-project/loki-network
 
-to get this package to work you must make a profile called _lokinet you can put it's home wherever you want
-after that just sudo systemctl start lokinet
+Starting and Stopping lokinet.¶
+
+To start lokinet manually run the following command:
+
+sudo systemctl start lokinet
+
+and to stop lokinet manually run the following command:
+
+sudo systemctl stop lokinet
+
+you can also start it with:
+lokinet -g
+lokinet-bootstrap
+lokinet
+
+docs: https://docs.loki.network/Lokinet/Guides/lokinet-linux-guide/
