@@ -1,0 +1,26 @@
+pkgbase = loki-network
+	pkgdesc = Lokinet is an anonymous, decentralized and IP based overlay network for the internet.
+	pkgver = 0.7.0rc3
+	pkgrel = 1
+	url = github.com/loki-project/loki-network
+	install = loki-network.install
+	arch = x86_64
+	license = custom
+	makedepends = cxxopts
+	makedepends = make
+	makedepends = gcc
+	depends = systemd
+	depends = curl
+	depends = libuv
+	depends = libsodium>=1.0.18
+	provides = loki-network
+	source = https://i2p.rocks/files/lokinet/archives/0.7.0rc3-rc3/lokinet-v0.7.0-rc3.tar.xz
+	source = https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-v0.7.0-rc3.tar.xz.sig
+	source = lokinet.service
+	validpgpkeys = 67EF6BA68E7B0B0D6EB4F7D4F357B3B42F6F9B05
+	sha256sums = SKIP
+	sha256sums = SKIP
+	sha256sums = 3bff0c487b34fc98b95daece674ea50ab2bc696a46d41290ba00839803a68830
+
+pkgname = loki-network
+
