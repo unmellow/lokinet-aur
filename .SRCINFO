@@ -14,7 +14,7 @@ pkgbase = loki-network
 	depends = libuv
 	depends = libsodium>=1.0.18
 	provides = loki-network
-	source = https://i2p.rocks/files/lokinet/archives/0.7.0rc3-rc3/lokinet-v0.7.0-rc3.tar.xz
+	source = https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-v0.7.0-rc3.tar.xz
 	source = https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-v0.7.0-rc3.tar.xz.sig
 	source = lokinet.service
 	validpgpkeys = 67EF6BA68E7B0B0D6EB4F7D4F357B3B42F6F9B05

@@ -10,7 +10,7 @@ license=('custom')
 depends=("systemd" "curl" "libuv" "libsodium>=1.0.18")
 makedepends=("cxxopts" "make" "gcc" )
 provides=(loki-network)
-source=("https://i2p.rocks/files/lokinet/archives/${pkgver}-rc3/lokinet-${_tag}.tar.xz" 
+source=("https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-${_tag}.tar.xz" 
 	"https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-v0.7.0-rc3.tar.xz.sig"
 	"lokinet.service")
 sha256sums=( "SKIP" 
