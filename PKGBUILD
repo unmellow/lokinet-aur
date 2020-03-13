@@ -13,8 +13,8 @@ provides=(loki-network)
 source=("https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-${_tag}.tar.xz" 
 	"https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-v0.7.0-rc3.tar.xz.sig"
 	"lokinet.service")
-sha256sums=( "SKIP" 
-	"SKIP" 
+sha256sums=( "ad46e8d47d2295e33e4cd90557ad2e8fc9a5275c5e0e5193ec5f8298b768c5e2" 
+	"4df568eba056e2cc64a5c81f9dde757657f9351b276b219b4b720b79a899e515" 
 	"3bff0c487b34fc98b95daece674ea50ab2bc696a46d41290ba00839803a68830")
 install="${pkgname}.install"
 validpgpkeys=("67EF6BA68E7B0B0D6EB4F7D4F357B3B42F6F9B05")
