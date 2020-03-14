@@ -7,7 +7,7 @@ pkgdesc="an anonymous, decentralized and IP based overlay network for the intern
 arch=(x86_64)
 url="https://github.com/loki-project/loki-network"
 license=('custom')
-depends=("systemd" "curl" "libuv" "libsodium>=1.0.18")
+depends=("resolvconf" "curl" "libuv" "libsodium>=1.0.18")
 #makedepends=("cxxopts"  "cmake" )
 makedepends=("cmake")
 provides=(loki-network)
@@ -17,7 +17,7 @@ source=("https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-${_tag}.tar.
 	"lokinet.conf")
 sha256sums=('ad46e8d47d2295e33e4cd90557ad2e8fc9a5275c5e0e5193ec5f8298b768c5e2'
             'SKIP'
-            '61f0c5b999cf9a35b4147596ff95397e94ff4cd664f609f3f9d6b6c4e44e3a68'
+            '9e6c324538c1e8a72713a9d352f7a00c7f4091f4c82277f6ea8a6a900c65962a'
             '49d6be3cbc32bf2414eefa86dbcead1d692e4ed8c4f66a09d740bb750c204354')
 install=loki-network.install
 validpgpkeys=("67EF6BA68E7B0B0D6EB4F7D4F357B3B42F6F9B05")
@@ -38,5 +38,5 @@ package() {
 	cp ${srcdir}/lokinet.service "$pkgdir/usr/lib/systemd/system/" 
 	#mkdir -p ${pkgdir}/var/lib/lokinet
 	mkdir -p ${pkgdir}/etc/sysusers.d/
-	cp ${srcdir}/lokinet.conf ${pkgdir}/etc/sysusers.d/
+	cp ${srcdir}/lokinet.conf ${pkgdir}/etc/sysusers.d/	
 }

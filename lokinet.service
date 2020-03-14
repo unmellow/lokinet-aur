@@ -13,6 +13,7 @@ CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 ExecStartPre=/bin/bash -c "/usr/bin/lokinet-bootstrap && /usr/bin/lokinet -g"
 ExecStart=/usr/bin/lokinet
+Environment=LOKINET_NETID=lokinet
 Restart=always
 RestartSec=5s
 
