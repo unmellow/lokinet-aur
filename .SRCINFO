@@ -7,7 +7,7 @@ pkgbase = loki-network
 	arch = x86_64
 	license = custom
 	makedepends = cmake
-	depends = systemd
+	depends = resolvconf
 	depends = curl
 	depends = libuv
 	depends = libsodium>=1.0.18
@@ -19,7 +19,7 @@ pkgbase = loki-network
 	validpgpkeys = 67EF6BA68E7B0B0D6EB4F7D4F357B3B42F6F9B05
 	sha256sums = ad46e8d47d2295e33e4cd90557ad2e8fc9a5275c5e0e5193ec5f8298b768c5e2
 	sha256sums = SKIP
-	sha256sums = 61f0c5b999cf9a35b4147596ff95397e94ff4cd664f609f3f9d6b6c4e44e3a68
+	sha256sums = 9e6c324538c1e8a72713a9d352f7a00c7f4091f4c82277f6ea8a6a900c65962a
 	sha256sums = 49d6be3cbc32bf2414eefa86dbcead1d692e4ed8c4f66a09d740bb750c204354
 
 pkgname = loki-network
