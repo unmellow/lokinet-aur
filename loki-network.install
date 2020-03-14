@@ -1,7 +1,8 @@
 post_install() {  
 	setcap cap_net_admin,cap_net_bind_service=+eip /usr/bin/lokinet
-	useradd _lokinet -d -m /var/lib/lokinet
-	chown _lokinet:_lokinet /var/lib/lokinet
+	#useradd _lokinet -d -m /var/lib/lokinet
+	#chown _lokinet:_lokinet /var/lib/lokinet
+	systemd-sysusers
 }
 
 post_upgrade() {
