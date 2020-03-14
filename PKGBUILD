@@ -7,9 +7,9 @@ pkgdesc="an anonymous, decentralized and IP based overlay network for the intern
 arch=(x86_64)
 url="https://github.com/loki-project/loki-network"
 license=('custom')
-depends=("resolvconf" "curl" "libuv" "libsodium>=1.0.18")
-#makedepends=("cxxopts"  "cmake" )
+depends=("curl" "libuv" "libsodium>=1.0.18")
 makedepends=("cmake")
+optdepends=("resolvconf")
 provides=(loki-network)
 source=("https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-${_tag}.tar.xz" 
 	"https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-v0.7.0-rc3.tar.xz.sig"
