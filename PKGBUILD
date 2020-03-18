@@ -9,7 +9,6 @@ url="https://github.com/loki-project/loki-network"
 license=('custom')
 depends=("curl" "libuv" "libsodium>=1.0.18")
 makedepends=("cmake")
-optdepends=("resolvconf")
 provides=(loki-network)
 source=("https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-${_tag}.tar.xz" 
 	"https://i2p.rocks/files/lokinet/archives/0.7.0-rc3/lokinet-v0.7.0-rc3.tar.xz.sig"
@@ -36,7 +35,7 @@ package() {
 	cp ../LICENSE "$pkgdir/usr/share/licenses/$pkgname"
 	mkdir -p "$pkgdir/usr/lib/systemd/system/"
 	cp ${srcdir}/lokinet.service "$pkgdir/usr/lib/systemd/system/" 
-	#mkdir -p ${pkgdir}/var/lib/lokinet
+	mkdir -p ${pkgdir}/var/lib/lokinet
 	mkdir -p ${pkgdir}/etc/sysusers.d/
-	cp ${srcdir}/lokinet.conf ${pkgdir}/etc/sysusers.d/	
+	cp ${srcdir}/lokinet.conf ${pkgdir}/etc/sysusers.d/
 }

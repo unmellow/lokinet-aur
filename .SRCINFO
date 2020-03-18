@@ -7,7 +7,6 @@ pkgbase = loki-network
 	arch = x86_64
 	license = custom
 	makedepends = cmake
-	depends = resolvconf
 	depends = curl
 	depends = libuv
 	depends = libsodium>=1.0.18
