@@ -1,12 +1,8 @@
 post_install() {  
 	setcap cap_net_admin,cap_net_bind_service=+eip /usr/bin/lokinet
-	systemd-sysusers
 }
 
 post_upgrade() {
 	post_install "$1"
 }
 
-post_remove() {
-	systemd-sysusers
-}
